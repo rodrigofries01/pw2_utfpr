@@ -1,5 +1,10 @@
-const { JSON, where } = require("sequelize");
-const pessoa = require("./pessoa");
+import { Sequelize } from "sequelize";
+const sequelize = new Sequelize("web2_bd", "postgres", "1234", {
+  host: "localhost",
+  dialect: "postgres",
+});
+
+import pessoa from "./models/pessoa";
 pessoa.sync({ force: true });
 pessoa.create({ nome: "Rodrigo", descricao: "Desenvolvedor" });
 
